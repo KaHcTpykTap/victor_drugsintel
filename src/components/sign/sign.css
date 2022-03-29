@@ -1,0 +1,75 @@
+.s {
+    height: 100vh;
+    width: 100vw;
+    background: url('../../images/bg.jpg');
+    background-size: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.s-main {
+    height: 80vh;
+    width: 90vw;
+    background-color: whitesmoke;
+    box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    border-radius: 10px;
+    
+}
+
+.s-sideL {
+    width: 60%;
+    height: 100%;
+    /* background-color: aquamarine; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.s-logo {
+    filter: invert(70%);
+    width: 40%;
+    margin-top: 4vh;
+}
+
+.s-image-left {
+    width: 60%;
+    margin-top: 5vh;
+    box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
+    border-radius: 10px;
+}
+
+.s-sideR {
+    width: 40%;
+    height: 100%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
+}
+
+.s-fp {
+    color: rgb(133, 133, 133);
+    font-size: 1.4vh;
+    cursor: pointer;
+}
+
+.s-fp-container {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1.5vh 0;
+}
+
+.s-sideR-evalid {
+    color: red;
+    font-size: .6em;
+}
+
+
