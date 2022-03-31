@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Button } from '@mui/material';
 import './home.css'
-import { accounting_login } from '../utils/constants';
+import { login, dashboard } from '../utils/constants';
 import {
   Routes,
   Route,
@@ -11,25 +11,38 @@ import {
   Navigate,
   Outlet,
 } from "react-router-dom";
+import { AuthStatus, useAuth } from '../auth/auth';
+import MenuBar from './menuBar/MenuBar';
+/* import { AuthStatus, useAuth } from '../../App'; */
 
 const Home = () => {
 
   let navigate = useNavigate();
+  let auth = useAuth();
 
   return (
     <div className='h'>
-      <Button variant="contained" onClick={() => { navigate(accounting_login) }}>Login</Button>
+      <MenuBar/>
+      <Outlet/>
+{/*       <div className='h-div-button'>
+        {!auth.user ?
+          <>
+            <Button
+              variant="contained"
+              onClick={() => { navigate(login) }}
+              style={{ margin: 10 }}
+            >Login</Button>
+            <AuthStatus />
+          </>
+            
+          :
+          <AuthStatus />
+          }
+      </div>
 
-      {/*         <ul>
-        <li>
-          <Link to="/">Home page</Link>
-        </li>
-        <li>
-          <Link to="/accounting">Sign page</Link>
-        </li>
-      </ul> */}
-      <Outlet />
-
+      <Button variant="contained" onClick={() => { navigate(dashboard) }}>Dashboard</Button>
+      <Outlet /> */}
+      
     </div>
   )
 }

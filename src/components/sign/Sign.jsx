@@ -8,18 +8,20 @@ import Typography from '@mui/material/Typography';
 import MailOutlineSharpIcon from '@mui/icons-material/MailOutlineSharp';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { useAuth } from '../../App';
+import Login from './login/Login';
+import Registration from './registration/Registration';
 
 const Sign = () => {
-    const [isLogin, setIsLogin] = useState(true);
+
     const [errorEmail, setErrorEmail] = useState(false);
     const [email, setEmail] = React.useState('');
     const [loginValue, setLoginValue] = React.useState('');
     const [password, setPassword] = React.useState('');
 
-    const accountingFormState = useSelector((state) => state.accountingFormState);
-
+    const stateFormLogin = useSelector((state) => state.stateFormLogin);
 
     const handleChangeLogin = () => {
         const pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
@@ -70,7 +72,7 @@ const Sign = () => {
                         </Box>
 
 
-                        {accountingFormState && <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
+                        {!stateFormLogin && <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
                             <PersonOutlineOutlinedIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
                             <TextField id="input-login" label="Login" variant="standard" onChange={(e) => setLoginValue(e.target.value.trim())} />
                         </Box>}
@@ -86,13 +88,14 @@ const Sign = () => {
                                 onChange={(e) => setPassword(e.target.value.trim())}
                             />
                         </Box>
-                        <div className='s-fp-container'>
+                        {stateFormLogin && <div className='s-fp-container'>
                             <div className='s-fp'>Forgot password?</div>
-                        </div>
+                        </div>}
                     </Box>
 
                     <div>
-                        <Outlet />
+                        {stateFormLogin ? <Login email={email}/> : <Registration email={email}/>}
+
                     </div>
                 </div>
             </div>
