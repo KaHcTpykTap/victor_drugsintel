@@ -7,14 +7,13 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { login, pages } from '../../utils/constants';
 import logo from '../../../images/drugs_logo.png'
 import { useNavigate } from 'react-router-dom';
 import { AuthStatus, useAuth } from '../../auth/auth';
+import './menuBar.css'
 
 
 
@@ -34,7 +33,7 @@ const MenuBar = () => {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" style={{backgroundColor: '#353a46'}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -43,9 +42,8 @@ const MenuBar = () => {
             component="div"
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
           >
-            LOGO
+            <img src={logo} className='mb-logo' alt='logo' />
           </Typography>
-          {/* <img src={logo} className='s-logo' alt='logo' /> */}
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -89,7 +87,7 @@ const MenuBar = () => {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
           >
-            LOGO
+            <img src={logo} className='mb-logo' alt='logo' />
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
@@ -118,16 +116,15 @@ const MenuBar = () => {
           </Box>
 
           {!auth.user ?
-            <>
+            <div className='mb-divAuth'>
               <AuthStatus />
               <Button
                 variant="contained"
                 onClick={() => { navigate(login) }}
-                style={{ margin: 10 }}
+                style={{ margin: 10, backgroundColor: '#353a46' }}
               >Login</Button>
 
-            </>
-
+            </div>
             :
             <AuthStatus />
           }

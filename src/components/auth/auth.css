@@ -1,0 +1,9 @@
+.au-not {
+    font-size: 0.8em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+}

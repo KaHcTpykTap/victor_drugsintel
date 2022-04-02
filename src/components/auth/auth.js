@@ -2,6 +2,7 @@ import { Button } from "@mui/material";
 import React from "react";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import { login } from "../utils/constants";
+import './auth.css'
 
 /**
  * This represents some generic auth provider API
@@ -53,20 +54,20 @@ export function AuthStatus() {
   let navigate = useNavigate();
 
   if (!auth.user) {
-    return <p>Not authorized</p>;
+    return <div className='au-not'>Not authorized</div>;
   }
 
   return (
-    <p>
+    <div className='au-not'>
       Welcome {auth.user}!{" "}
       <Button
         variant="contained"
         onClick={() => {
           auth.signout(() => navigate("/"));
         }}
-        style={{ margin: 10 }}
+        style={{ margin: 10, backgroundColor: '#353a46' }}
       >Sign out</Button>
-    </p>
+    </div>
   );
 }
 

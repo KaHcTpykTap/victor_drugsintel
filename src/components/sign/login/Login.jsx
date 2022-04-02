@@ -35,12 +35,15 @@ function Login({ email }) {
 
     return (
         <div>
-            <Button variant='contained' onClick={(e) => {
+            <Button variant='contained' 
+            style={{ backgroundColor: '#353a46' }}
+            onClick={(e) => {
                 dispatch(setUser(email));
                 handleSubmit(e);
             }}>Login</Button>
             <Button
                 variant="text"
+                style={{color: '#353a46'}}
                 onClick={() => {
                     navigate(registration);
                     dispatch(setStateFormLogin(false));

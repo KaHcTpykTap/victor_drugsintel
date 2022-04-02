@@ -1,0 +1,13 @@
+.mb-logo {
+    width: 140px;
+    margin-right: 100px;
+}
+
+.mb-divAuth {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
