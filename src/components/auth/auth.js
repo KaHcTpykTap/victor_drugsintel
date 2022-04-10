@@ -54,7 +54,13 @@ export function AuthStatus() {
   let navigate = useNavigate();
 
   if (!auth.user) {
-    return <div className='au-not'>Not authorized</div>;
+    return <div className='au-not'>Not authorized
+      <Button
+        variant="contained"
+        onClick={() => { navigate(login) }}
+        style={{ margin: 10, backgroundColor: '#353a46' }}
+      >Login</Button>
+    </div>;
   }
 
   return (

@@ -33,7 +33,7 @@ const MenuBar = () => {
   };
 
   return (
-    <AppBar position="static" style={{backgroundColor: '#353a46'}}>
+    <AppBar position="static" style={{ backgroundColor: '#353a46' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -114,21 +114,7 @@ const MenuBar = () => {
                 </Button>
             ))}
           </Box>
-
-          {!auth.user ?
-            <div className='mb-divAuth'>
-              <AuthStatus />
-              <Button
-                variant="contained"
-                onClick={() => { navigate(login) }}
-                style={{ margin: 10, backgroundColor: '#353a46' }}
-              >Login</Button>
-
-            </div>
-            :
-            <AuthStatus />
-          }
-
+          <AuthStatus />
         </Toolbar>
       </Container>
     </AppBar>

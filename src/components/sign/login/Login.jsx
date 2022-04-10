@@ -7,7 +7,7 @@ import { setStateFormLogin, setUser } from '../../actions/userActions';
 import { useAuth } from '../../auth/auth';
 /* import { useAuth } from '../../../App'; */
 
-function Login({ email }) {
+function Login({ email, password, handleChangeLogin }) {
 
 
     const dispatch = useDispatch();
@@ -17,8 +17,12 @@ function Login({ email }) {
     let navigate = useNavigate();
     let from = location.state?.from?.pathname || "/";
 
+
+
+
     function handleSubmit(e) {
         e.preventDefault();
+        
     
         let username = email;
     
@@ -38,8 +42,9 @@ function Login({ email }) {
             <Button variant='contained' 
             style={{ backgroundColor: '#353a46' }}
             onClick={(e) => {
-                dispatch(setUser(email));
-                handleSubmit(e);
+                /* dispatch(setUser(email));
+                handleSubmit(e); */
+                handleChangeLogin(email, password);
             }}>Login</Button>
             <Button
                 variant="text"
