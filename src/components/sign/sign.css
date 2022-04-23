@@ -1,5 +1,6 @@
 .s {
   width: 100vw;
+  height: 100vh;
   background: url("../../images/bg.jpg");
   background-size: 100%;
   display: flex;
@@ -8,7 +9,7 @@
 }
 
 .s-main {
-  height: 90vh;
+  height: 80vh;
   width: 90vw;
   max-width: 1440px;
   display: flex;

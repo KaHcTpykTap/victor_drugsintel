@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -9,17 +10,17 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
-import { login, pages } from '../../utils/constants';
+import { pages } from '../../utils/constants';
 import logo from '../../../images/drugs_logo.png'
 import { useNavigate } from 'react-router-dom';
-import { AuthStatus, useAuth } from '../../auth/auth';
-import './menuBar.css'
+import { AuthStatus } from '../../auth/auth';
+import './menuBar.css';
 
 
 
 const MenuBar = () => {
 
-  let auth = useAuth();
+  /* let auth = useAuth(); */
   const [anchorElNav, setAnchorElNav] = useState(null);
 
   const navigate = useNavigate();
@@ -28,23 +29,23 @@ const MenuBar = () => {
     setAnchorElNav(event.currentTarget);
   };
 
-  const handleCloseNavMenu = () => {
+  const handleCloseNavMenu = (page) => {
+    navigate(page !== 'home' ? page : '/');
     setAnchorElNav(null);
   };
 
   return (
-    <AppBar position="static" style={{ backgroundColor: '#353a46' }}>
-      <Container maxWidth="xl">
+    <AppBar position="fixed" style={{ backgroundColor: '#353a46', height: '9vh', justifyContent: 'center' }}>
+      <Container style={{ maxWidth: 'min(100% - 2rem, 1440px)' }}>
         <Toolbar disableGutters>
           <Typography
             variant="h6"
             noWrap
             component="div"
-            sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
+            sx={{ mr: 1, display: { xs: 'none', md: 'flex' } }}
           >
             <img src={logo} className='mb-logo' alt='logo' />
           </Typography>
-
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -75,8 +76,8 @@ const MenuBar = () => {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu} >
-                  <Typography textAlign="center" >{page}</Typography>
+                <MenuItem key={page} onClick={() => handleCloseNavMenu(page)} >
+                  <Typography textAlign="center" >{page.toUpperCase()}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -93,10 +94,7 @@ const MenuBar = () => {
             {pages.map((page) => (
               page !== 'home' ? <Button
                 key={page}
-                onClick={() => {
-                  /* handleCloseNavMenu(); */
-                  navigate(page)
-                }}
+                onClick={() => { navigate(page) }}
                 sx={{ my: 2, color: 'white', display: 'block', marginLeft: 1 }}
               >
                 {page}
@@ -104,10 +102,7 @@ const MenuBar = () => {
                 :
                 <Button
                   key={page}
-                  onClick={() => {
-                    /* handleCloseNavMenu(); */
-                    navigate('/')
-                  }}
+                  onClick={() => { navigate('/') }}
                   sx={{ my: 2, color: 'white', display: 'block', marginLeft: 1 }}
                 >
                   {page}

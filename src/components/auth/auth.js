@@ -58,7 +58,7 @@ export function AuthStatus() {
       <Button
         variant="contained"
         onClick={() => { navigate(login) }}
-        style={{ margin: 10, backgroundColor: '#353a46' }}
+        style={{ margin: 2, backgroundColor: '#353a46' }}
       >Login</Button>
     </div>;
   }
@@ -71,7 +71,7 @@ export function AuthStatus() {
         onClick={() => {
           auth.signout(() => navigate("/"));
         }}
-        style={{ margin: 10, backgroundColor: '#353a46' }}
+        style={{ margin: 2, backgroundColor: '#353a46' }}
       >Sign out</Button>
     </div>
   );
