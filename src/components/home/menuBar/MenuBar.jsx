@@ -42,11 +42,11 @@ const MenuBar = () => {
             variant="h6"
             noWrap
             component="div"
-            sx={{ mr: 1, display: { xs: 'none', md: 'flex' } }}
+            sx={{ mr: 1, display: { xs: 'none', xl: 'flex' } }}
           >
             <img src={logo} className='mb-logo' alt='logo' />
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', lg: 'none' } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -72,7 +72,7 @@ const MenuBar = () => {
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: 'block', md: 'none' },
+                display: { xs: 'block', lg: 'none' },
               }}
             >
               {pages.map((page) => (
@@ -86,11 +86,11 @@ const MenuBar = () => {
             variant="h6"
             noWrap
             component="div"
-            sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
+            sx={{ flexGrow: 1, display: { xs: 'flex', lg: 'none' } }}
           >
             <img src={logo} className='mb-logo' alt='logo' />
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', lg: 'flex' } }}>
             {pages.map((page) => (
               page !== 'home' ? <Button
                 key={page}

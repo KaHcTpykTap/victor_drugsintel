@@ -7,13 +7,13 @@ import ItemTeam from '../items/ItemTeam';
 
 const Team = () => {
 
-  const header = 'Our Team';
   const topHeader = 'THE EXECUTIVE TEAM';
+  const header = 'Our Team';
 
   return (
     <TeamContainer>
       <HeaderSpan header={header} topHeader={topHeader} />
-      <Grid container spacing={4} sx={{justifyContent: 'center'}}>
+      <Grid container spacing={4} sx={{ justifyContent: 'center' }}>
         {dataTeam.map((item, index) => (
           <Grid item xs={12} sm={6} md={4} lg={3} key={index} >
             <ItemTeam

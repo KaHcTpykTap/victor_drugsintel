@@ -15,22 +15,6 @@ export const VisionContainer = styled.div`
     font-weight: 700;
   }
 
-  span {
-    background-image: linear-gradient(100deg, #f9643d, #fe2a77);
-    height: 6px;
-    border-radius: 3px;
-    width: 90px;
-    margin-bottom: 10px;
-  }
-
-  .v-title {
-    padding: 0 0 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-
   .v-vision {
     display: flex;
     flex-direction: row;

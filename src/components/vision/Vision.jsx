@@ -3,15 +3,16 @@ import { VisionContainer } from "./styles/VisionStyles"
 import img1 from '../../images/vision_1.jpg';
 import img2 from '../../images/vision_2.jpg';
 import img3 from '../../images/vision_3.jpg';
+import HeaderSpan from '../headerSpan/HeaderSpan';
 
 
 const Vision = () => {
+
+  const header = 'Vision And Overview';
+
   return (
     <VisionContainer>
-      <div className="v-title">
-        <h2>Vision And Overview</h2>
-        <span></span>
-      </div>
+      <HeaderSpan header={header}/>
       <div className="v-vision">
         <div className="v-vision-left">
           <img src={img1} alt='vision'></img>
