@@ -1,7 +1,9 @@
 
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { HomePageContainer } from './styles/HomePageStyles'
+import { contact } from '../utils/constants';
+import { HomePageContainer } from './styles/HomePageStyles';
+import Grid from '@mui/material/Grid';
 
 function HomePage() {
 
@@ -9,7 +11,19 @@ function HomePage() {
   return (
     <HomePageContainer>
       <div className='hp'>
-        <div className="hp-left">
+        <Grid container spacing={12} /* sx={{ justifyContent: 'center' }} */>
+          <Grid item xs={12} sm={10} md={6} >
+            <h2>Drugs Intelligence</h2>
+            <h2>Data-Driven Solutions</h2>
+            <h4>
+              The DI company has developed an exclusive technological platform,
+              «The Compass» that aggregates unique data sets and applies manipulation,
+              unification and deployment of the data to BI using AI and ML models.
+            </h4>
+            <button onClick={() => { navigate(contact) }}>CONTACT US</button>
+          </Grid>
+        </Grid>
+        {/*         <div className="hp-left">
           <h2>Drugs Intelligence</h2>
           <h2>Data-Driven Solutions</h2>
           <h4>
@@ -17,8 +31,8 @@ function HomePage() {
             «The Compass» that aggregates unique data sets and applies manipulation,
             unification and deployment of the data to BI using AI and ML models.
           </h4>
-          <button onClick={() => {navigate('contact')}}>CONTACT US</button>
-        </div>
+          <button onClick={() => { navigate(contact) }}>CONTACT US</button>
+        </div> */}
       </div>
 
 

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { ContactContainer } from './styles/ContactStyles';
 import HeaderSpan from '../headerSpan/HeaderSpan';
 import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
 
 const Contact = () => {
 

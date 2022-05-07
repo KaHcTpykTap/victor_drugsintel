@@ -18,19 +18,15 @@ const Sign = () => {
 
     const [errorEmail, setErrorEmail] = useState(false);
     const [errorPassword, setErrorPassword] = useState(false);
-
     const [email, setEmail] = React.useState('');
     const [loginValue, setLoginValue] = React.useState('');
-
     const [password, setPassword] = React.useState('');
-
     const stateFormLogin = useSelector((state) => state.stateFormLogin);
 
     const handleChangeLogin = (email, password) => {
 
         const pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
-
-        function password_validate(password) {
+        const password_validate = (password) => {
             const pattern = {
                 'capital': /[A-Z]/,
                 'digit': /[0-9]/,
@@ -44,8 +40,6 @@ const Sign = () => {
         const result = pattern.test(email);
         const resultTestPassword = password_validate(password);
         if (result && resultTestPassword) {
-            console.log('email -> ' + email);
-            console.log('password -> ' + password);
             setEmail('');
             setPassword('');
             setErrorEmail(false)
@@ -58,14 +52,14 @@ const Sign = () => {
         }
     };
 
-    const handleChangeCreateAccount = () => {
+/*     const handleChangeCreateAccount = () => {
         console.log(email);
         setEmail('');
         console.log(loginValue);
         setLoginValue('');
         console.log(password);
         setPassword('');
-    };
+    }; */
 
     return (
         <div className='s'>
@@ -125,7 +119,7 @@ const Sign = () => {
 
                     </Box>
 
-                    {stateFormLogin ? <Login email={email} password={password} handleChangeLogin={handleChangeLogin} /> : <Registration email={email} />}
+                    {stateFormLogin ? <Login email={email} password={password} /> : <Registration email={email} />}
 
                 </div>
             </div>

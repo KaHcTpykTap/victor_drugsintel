@@ -5,7 +5,11 @@ import { SET_STATE_FORM_LOGIN } from '../actions/userActions';
 const initialState = {
     accountingFormState: false,
     user: null,
-    stateFormLogin: true
+    stateFormLogin: true,
+    // auth
+    userToken: null,
+    isLoading: true,
+    isSignout: false
 }
 
 export const userReducer = (state = initialState, action) => {

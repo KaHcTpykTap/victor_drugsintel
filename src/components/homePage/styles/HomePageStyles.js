@@ -14,15 +14,15 @@ export const HomePageContainer = styled.div`
   .hp {
     width: min(100%, 1440px);
     height: 100%;
-    padding: 150px 30px 0 30px;
+    padding: 9vh 30px 0 30px;
     display: flex;
     flex-direction: row;
     align-items: center;
 
-    .hp-left {
+/*     .hp-left {
       max-width: 45vw;
       padding: 0 15px;
-      margin-left: 30px;
+      margin-left: 30px; */
 
       h2 {
         font-size: 48px;
@@ -47,7 +47,8 @@ export const HomePageContainer = styled.div`
         border: 1px solid transparent;
         border-radius: 2px;
         margin-top: 50px;
+        cursor: pointer;
       }
-    }
+   /*  } */
   }
 `;

@@ -1,0 +1,6 @@
+{
+  "users": [
+    { "id": 1, "username": "drugsintel", "password": 1234, "token": "token_drugsintel", "refreshToken": "refreshToken_drugsintel"},
+    { "id": 2, "username": "user", "password": 1234, "token": "token_user", "refreshToken": "refreshToken_user"}
+  ]
+}
