@@ -1,12 +1,12 @@
 # victor_drugsintel
 
-start json server
+start json server ->
 npx json-server --watch db.json
 
-start application 
+start application ->
 yarn start (npm start)
 
 
-test login
-username: user
+test login  ->
+username: user |
 password: 1234
