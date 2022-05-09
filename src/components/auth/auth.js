@@ -2,7 +2,7 @@ import { Button } from "@mui/material";
 import React from "react";
 import { useDispatch } from "react-redux";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
-import { setUser, signOutUser } from "../actions/userActions";
+import { getJwtToken, setUser, signOutUser } from "../actions/userActions";
 import { login } from "../utils/constants";
 import "./auth.css";
 
@@ -35,6 +35,8 @@ export function AuthStatus() {
   let navigate = useNavigate();
   const dispatch = useDispatch();
 
+  /* const token = getJwtToken(); */
+
   if (!auth.user) {
     return (
       <div className="au-not">
@@ -54,7 +56,7 @@ export function AuthStatus() {
 
   return (
     <div className="au-not">
-      Welcome {auth.user}!{" "}
+      Welcome {auth.user ? auth.user : "No name"}!{" "}
       <Button
         variant="contained"
         onClick={() => {

@@ -20,7 +20,6 @@ import './menuBar.css';
 
 const MenuBar = () => {
 
-  /* let auth = useAuth(); */
   const [anchorElNav, setAnchorElNav] = useState(null);
 
   const navigate = useNavigate();
