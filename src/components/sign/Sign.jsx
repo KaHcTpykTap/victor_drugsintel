@@ -23,9 +23,15 @@ const Sign = () => {
     const [password, setPassword] = React.useState('');
     const stateFormLogin = useSelector((state) => state.stateFormLogin);
 
-    const handleChangeLogin = (email, password) => {
-
+    const handleChangeEmail = (email) => {
         const pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+        const result = pattern.test(email);
+        !result ? setErrorEmail(true) : setErrorEmail(false);
+        return result;
+    };
+
+
+    const handleChangePassword = (password) => {
         const password_validate = (password) => {
             const pattern = {
                 'capital': /[A-Z]/,
@@ -36,30 +42,10 @@ const Sign = () => {
                 pattern.digit.test(password) &&
                 pattern.full.test(password);
         }
-
-        const result = pattern.test(email);
         const resultTestPassword = password_validate(password);
-        if (result && resultTestPassword) {
-            setEmail('');
-            setPassword('');
-            setErrorEmail(false)
-        }
-        if (!result) {
-            setErrorEmail(true)
-        }
-        if (!resultTestPassword) {
-            setErrorPassword(true)
-        }
+        !resultTestPassword ? setErrorPassword(true) : setErrorPassword(false);
+        return resultTestPassword;
     };
-
-/*     const handleChangeCreateAccount = () => {
-        console.log(email);
-        setEmail('');
-        console.log(loginValue);
-        setLoginValue('');
-        console.log(password);
-        setPassword('');
-    }; */
 
     return (
         <div className='s'>
@@ -86,7 +72,7 @@ const Sign = () => {
                                 id="input-email"
                                 label="Email Address"
                                 variant="standard"
-                                onChange={(e) => { setEmail(e.target.value) }}
+                                onChange={(e) => setEmail(e.target.value)}
                                 value={email} />
                         </Box>
 
@@ -96,7 +82,9 @@ const Sign = () => {
                                 id="input-login"
                                 label="Login"
                                 variant="standard"
-                                onChange={(e) => setLoginValue(e.target.value.trim())} />
+                                onChange={(e) => {
+                                    setLoginValue(e.target.value.trim());
+                                }} />
                         </Box>}
 
                         <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
@@ -119,7 +107,15 @@ const Sign = () => {
 
                     </Box>
 
-                    {stateFormLogin ? <Login email={email} password={password} /> : <Registration email={email} />}
+                    {stateFormLogin ?
+                        <Login
+                            email={email}
+                            password={password}
+                            handleChangeEmail={handleChangeEmail}
+                            handleChangePassword={handleChangePassword}
+                        />
+                        :
+                        <Registration email={email} />}
 
                 </div>
             </div>

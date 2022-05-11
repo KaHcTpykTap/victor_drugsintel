@@ -1,26 +1,24 @@
-import { CHANGE_ACCOUNTING_FORM } from '../actions/userActions';
-import { SET_USER } from '../actions/userActions';
-import { SET_STATE_FORM_LOGIN } from '../actions/userActions';
+import { CHANGE_ACCOUNTING_FORM, getUserName, SET_STATE_FORM_LOGIN, SET_USER } from "../actions/userActions";
 
 const initialState = {
-    accountingFormState: false,
-    user: null,
-    stateFormLogin: true,
-    // auth
-    userToken: null,
-    isLoading: true,
-    isSignout: false
-}
+  accountingFormState: false,
+  user: getUserName() === "null" || !getUserName() ? null : getUserName(),
+
+  stateFormLogin: true,
+  // auth
+  isLoading: true,
+  isSignout: false,
+};
 
 export const userReducer = (state = initialState, action) => {
-    switch (action.type) {
-        case CHANGE_ACCOUNTING_FORM:
-            return { ...state, accountingFormState: action.payload }
-        case SET_USER:
-            return { ...state, user: action.payload }
-        case SET_STATE_FORM_LOGIN:
-            return { ...state, stateFormLogin: action.payload }
-        default:
-            return state;
-    }
-}
+  switch (action.type) {
+    case CHANGE_ACCOUNTING_FORM:
+      return { ...state, accountingFormState: action.payload };
+    case SET_USER:
+      return { ...state, user: action.payload };
+    case SET_STATE_FORM_LOGIN:
+      return { ...state, stateFormLogin: action.payload };
+    default:
+      return state;
+  }
+};

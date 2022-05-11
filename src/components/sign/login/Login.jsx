@@ -6,20 +6,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import { loginUser, setStateFormLogin, setUser } from '../../actions/userActions';
 import { useAuth } from '../../auth/auth';
 
-const Login = ({ email, password, handleChangeLogin }) => {
-
+const Login = ({ email, password, handleChangeEmail, handleChangePassword }) => {
 
     const dispatch = useDispatch();
-
     const user = useSelector(state => state.user);
-
     let auth = useAuth();
     let location = useLocation();
     let navigate = useNavigate();
     let from = location.state?.from?.pathname || "/";
 
     useEffect(() => {
-        if(user !== null) {
+        if (user !== null) {
             auth.signin(user, () => {
                 // Send them back to the page they tried to visit when they were
                 // redirected to the login page. Use { replace: true } so we don't create
@@ -36,8 +33,10 @@ const Login = ({ email, password, handleChangeLogin }) => {
         <div>
             <Button variant='contained'
                 style={{ backgroundColor: '#353a46' }}
-                onClick={(e) => {
-                    dispatch(loginUser(email, password));
+                onClick={() => {
+                    if(handleChangeEmail(email) && handleChangePassword(password)) {
+                        dispatch(loginUser(email, password));
+                    };
                 }}>Login</Button>
             <Button
                 variant="text"

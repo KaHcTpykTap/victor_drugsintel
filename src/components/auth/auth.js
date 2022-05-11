@@ -2,7 +2,7 @@ import { Button } from "@mui/material";
 import React from "react";
 import { useDispatch } from "react-redux";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
-import { getJwtToken, setUser, signOutUser } from "../actions/userActions";
+import { setUserName, signOutUser } from "../actions/userActions";
 import { login } from "../utils/constants";
 import "./auth.css";
 
@@ -34,8 +34,6 @@ export function AuthStatus() {
   let auth = useAuth();
   let navigate = useNavigate();
   const dispatch = useDispatch();
-
-  /* const token = getJwtToken(); */
 
   if (!auth.user) {
     return (
@@ -84,4 +82,4 @@ export const RequireAuth = ({ children }) => {
   }
 
   return children;
-}
+};

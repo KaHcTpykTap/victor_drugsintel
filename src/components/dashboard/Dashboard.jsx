@@ -3,6 +3,11 @@ import { DashboardContainer } from './styles/DashboardStyles';
 import Grid from '@mui/material/Grid';
 import Intro from './Intro';
 import NavPanel from './NavPanel';
+import Incentives from './Incentives';
+import AssociatedDrugs from './AssociatedDrugs';
+import EpidemData from './EpidemData';
+import KOL from './KOL';
+import Articles from './Articles';
 
 
 const Dashboard = () => {
@@ -14,6 +19,11 @@ const Dashboard = () => {
         </Grid>
         <Grid item xs={12} /* sm={10} */ md={8} >
           <Intro />
+          <Incentives />
+          <AssociatedDrugs />
+          <EpidemData />
+          <KOL />
+          <Articles />
         </Grid>
 
       </Grid>
