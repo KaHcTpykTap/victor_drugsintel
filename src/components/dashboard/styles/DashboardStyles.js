@@ -5,7 +5,7 @@ export const DashboardContainer = styled.div`
   height: 100vh;
   margin-inline: auto;
   background-color: whitesmoke;
-  padding-top: 10vh;
+  padding: 10vh 4vw 1vh 4vw;
   display: flex;
   flex-direction: column;
   /* border: 1px solid red; */

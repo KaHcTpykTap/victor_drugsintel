@@ -13,11 +13,12 @@ import Articles from './Articles';
 const Dashboard = () => {
   return (
     <DashboardContainer>
-      <Grid container spacing={12} sx={{ justifyContent: 'right' }}>
-        <Grid item xs={12} /* sm={10} */ md={4} >
+      <Grid container spacing={12} sx={{ justifyContent: 'center' }}>
+        <Grid item xs={12} /* sm={10} */ md={4}>
           <NavPanel />
         </Grid>
         <Grid item xs={12} /* sm={10} */ md={8} >
+          <h1>Disease Report</h1>
           <Intro />
           <Incentives />
           <AssociatedDrugs />
