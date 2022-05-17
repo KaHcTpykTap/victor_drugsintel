@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { ContactContainer } from './styles/ContactStyles';
 import HeaderSpan from '../headerSpan/HeaderSpan';
 import Grid from '@mui/material/Grid';
+import Map from './Map';
+
+
 
 const Contact = () => {
 
@@ -27,7 +30,7 @@ const Contact = () => {
       <HeaderSpan header={header} topHeader={topHeader} />
       <Grid container spacing={12} sx={{ justifyContent: 'center' }}>
         <Grid item xs={12} sm={10} md={6} >
-
+          <Map/>
         </Grid>
         <Grid item xs={12} sm={10} md={6}  >
           <input
