@@ -1,16 +1,21 @@
-import React from 'react'
-import { DashboardContainer } from './styles/DashboardStyles';
 import Grid from '@mui/material/Grid';
-import Intro from './Intro';
-import NavPanel from './NavPanel';
-import Incentives from './Incentives';
+import React from 'react';
+import Articles from './Articles';
 import AssociatedDrugs from './AssociatedDrugs';
 import EpidemData from './EpidemData';
+import Estimations from './Estimations';
+import Incentives from './Incentives';
+import Information from './Information';
+import Intro from './Intro';
 import KOL from './KOL';
-import Articles from './Articles';
-
+import NavPanel from './NavPanel';
+import Rate from './Rate';
+import { DashboardContainer } from './styles/DashboardStyles';
 
 const Dashboard = () => {
+
+  const items = [Intro, Incentives, AssociatedDrugs, EpidemData, KOL, Articles, Estimations, Information, Rate];
+
   return (
     <DashboardContainer>
       <Grid container spacing={12} sx={{ justifyContent: 'center' }}>
@@ -19,12 +24,13 @@ const Dashboard = () => {
         </Grid>
         <Grid item xs={12} /* sm={10} */ md={8} >
           <h1>Disease Report</h1>
-          <Intro />
+          {items.map((item, index) => <div id={`_${index}`} key={index}>{item()}</div>)}
+          {/*           <Intro />
           <Incentives />
-          <AssociatedDrugs />
+          <AssociatedDrugs isActive={isActive}/>
           <EpidemData />
           <KOL />
-          <Articles />
+          <Articles /> */}
         </Grid>
 
       </Grid>

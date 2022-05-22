@@ -2,11 +2,18 @@ import React from 'react'
 import { AssociatedDrugsContainer } from './styles/AssociatedDrugsStyles'
 
 const AssociatedDrugs = () => {
+
   return (
     <AssociatedDrugsContainer>
-      AssociatedDrugs
+
+      <div>
+        AssociatedDrugs
+      </div>
+
+
+
     </AssociatedDrugsContainer>
   )
 }
 
-export default AssociatedDrugs;
+export default AssociatedDrugs

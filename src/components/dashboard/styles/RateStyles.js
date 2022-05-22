@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
-export const IntroContainer = styled.div`
-  padding-top: 10vh;
+export const RateContainer = styled.div`
   width: 100%;
-  min-height: 50vh;
+  min-height: 40vh;
   background-color: white;
 `;

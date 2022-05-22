@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { NavPanelContainer } from './styles/NavPanelStyles';
+import React, { useState } from 'react'
+import { NavPanelContainer } from './styles/NavPanelStyles'
 
 const NavPanel = () => {
 
@@ -15,7 +15,10 @@ const NavPanel = () => {
             {items.map((item, index) => <div
                 className={index === indexColor ? 'np active' : 'np inactive'}
                 key={index}
-                onClick={() => setIndexColor(index)}
+                onClick={() => {
+                    setIndexColor(index)
+                    document.getElementById(`_${index}`).scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }}
             >{item}</div>)
             }
         </NavPanelContainer>
